@@ -630,6 +630,81 @@
 //	return 0;
 //}
 
+/*88. Merge Sorted Array */
+//void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) 
+//{
+//	int index = m + n - 1;
+//	--m;
+//	--n;
+//	while (m >= 0 && n >= 0)
+//	{
+//		if (nums1[m] > nums2[n])
+//		{
+//			nums1[index--] = nums1[m--];
+//		}
+//		else
+//		{
+//			nums1[index--] = nums2[n--];
+//		}
+//	}
+//	while (n >= 0)
+//	{
+//		nums1[index--] = nums2[n--];
+//	}
+//}
+//
+//int main()
+//{
+//	vector<int> vec1{ 1,2,3,0,0,0 };
+//	vector<int> vec2{ 2,5,6 };
+//	merge(vec1, 3, vec2, 3);
+//	for (auto &it : vec1)
+//	{
+//		cout << it << " ";
+//	}
+//	cout << endl;
+//	system("pause");
+//	return 0;
+//}
+
+/*98. Validate Binary Search Tree */
+//struct TreeNode {
+//	int val;
+//	TreeNode *left;
+//	TreeNode *right;
+//	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+//};
+//TreeNode *pre = NULL;
+//bool isValidBST(TreeNode* root) 
+//{
+//	if (root != NULL)
+//	{
+//		if (!isValidBST(root->left))
+//		{
+//			return false;
+//		}
+//		if (pre != NULL && root->val <= pre->val)
+//		{
+//			return false;
+//		}
+//		pre = root;
+//		return isValidBST(root->right);
+//	}
+//	return true;
+//}
+//
+//int main()
+//{
+//	TreeNode *tree = new TreeNode(5);
+//	tree->left = new TreeNode(1);
+//	tree->right = new TreeNode(4);
+//	tree->right->left = new TreeNode(3);
+//	tree->right->right = new TreeNode(6);
+//	cout << isValidBST(tree) << endl;
+//	system("pause");
+//	return 0;
+//}
+
 /*234. Palindrome Linked List*/
 //struct ListNode
 //{

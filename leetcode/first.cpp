@@ -250,6 +250,37 @@
 //	return 0;
 //}
 
+/*12. Integer to Roman */
+//string intToRoman(int num)
+//{
+//	string ROMAN[13] = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
+//	int nums[13] = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
+//	int tmp;
+//	string res;
+//	for (int i = 0; i < 13; i++)
+//	{
+//		tmp = num / nums[i];
+//		while (tmp)
+//		{
+//			res += ROMAN[i];
+//			tmp--;
+//		}
+//		num = num % nums[i];
+//	}
+//	return res;
+//}
+//
+//int main()
+//{
+//	int nn[5] = { 3,4,9,58,1994 };
+//	for (int i = 0; i < 5; ++i)
+//	{
+//		cout << intToRoman(nn[i]) << endl;
+//	}
+//	system("pause");
+//	return 0;
+//}
+
 /*13. Roman to Integer*/
 //int romanToInt(string s) 
 //{
@@ -701,6 +732,101 @@
 //	tree->right->left = new TreeNode(3);
 //	tree->right->right = new TreeNode(6);
 //	cout << isValidBST(tree) << endl;
+//	system("pause");
+//	return 0;
+//}
+
+/*125. Valid Palindrome */
+//void toLower(string &s)
+//{
+//	for (int i = 0; i < (int)s.length(); ++i)
+//	{
+//		if (s[i] >= 'A' && s[i] <= 'Z')
+//			s[i] += 'a' - 'A';
+//	}
+//}
+//
+//bool isPalindrome(string s) 
+//{
+//	toLower(s);
+//	int nFront = 0, nTail = (int)s.length() - 1;
+//	while (nFront < nTail)
+//	{
+//		while (!isalnum(s[nFront]))
+//			++nFront;
+//		while (!isalnum(s[nTail]))
+//			--nTail;
+//		if (nFront >= nTail)
+//			return true;
+//		if (s[nFront] != s[nTail])
+//			return false;
+//		++nFront;
+//		--nTail;
+//	}
+//	return true;
+//}
+//
+//int main()
+//{
+//	string strs[2] = { "0P" , "race a car" };
+//	for (int i = 0; i < 2; i++)
+//	{
+//		cout << isPalindrome(strs[i]) << endl;
+//	}
+//	system("pause");
+//	return 0;
+//}
+
+/*127. Word Ladder */
+//bool isAdjacent(string &strF, string &strT)
+//{
+//	int index = 0;
+//	for (int i = 0; i < (int)strF.length(); ++i)
+//	{
+//		if (strF[i] != strT[i])
+//			++index;
+//		if (index > 1)
+//			return false;
+//	}
+//	return index == 1;
+//}
+//
+//int ladderLength(string beginWord, string endWord, vector<string>& wordList) 
+//{
+//	queue<string> que;
+//	que.push(beginWord);
+//	int res = 0;
+//	while (!que.empty())
+//	{
+//		int nSize = (int)que.size();
+//		for (int i = 0; i < nSize; ++i)
+//		{
+//			string tmp = que.front();
+//			que.pop();
+//			if (tmp == endWord)
+//				return res + 1;
+//			for (vector<string>::iterator it = wordList.begin(); it!= wordList.end(); )
+//			{
+//				if (isAdjacent(*it, tmp))
+//				{
+//					que.push(*it);
+//					it = wordList.erase(it);
+//				}
+//				else
+//					++it;
+//			}
+//		}
+//		++res;
+//	}
+//	return 0;
+//}
+//
+//int main()
+//{
+//	string sbegin = "hit";
+//	string send = "cog";
+//	vector<string> wordList{ "hot","dot","dog","lot","log","cog" };
+//	cout << ladderLength(sbegin, send, wordList) << endl;
 //	system("pause");
 //	return 0;
 //}

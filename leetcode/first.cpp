@@ -525,6 +525,80 @@
 //	return 0;
 //}
 
+/*23. Merge k Sorted Lists */
+//struct ListNode {
+//	int val;
+//	ListNode *next;
+//	ListNode(int x) : val(x), next(NULL) {}
+//};
+//
+//struct cmp
+//{
+//	bool operator ()(const ListNode* A, const ListNode* B)
+//	{
+//		return A->val > B->val;
+//	}
+//};
+//
+//ListNode* mergeKLists(vector<ListNode*>& lists) 
+//{
+//	priority_queue < ListNode*, vector< ListNode*>, cmp> que;
+//	for (auto &it : lists)
+//	{
+//		if (it)
+//		{
+//			que.push(it);
+//		}
+//	}
+//	if (que.empty())
+//	{
+//		return nullptr;
+//	}
+//	ListNode* res = que.top();
+//	que.pop();
+//	if (res->next != nullptr)
+//	{
+//		que.push(res->next);
+//	}
+//	ListNode* tail = res;
+//	while (!que.empty())
+//	{
+//		tail->next = que.top();
+//		que.pop();
+//		tail = tail->next;
+//		if (tail->next != nullptr)
+//		{
+//			que.push(tail->next);
+//		}
+//	}
+//	return res;
+//}
+//
+//int main()
+//{
+//	vector<ListNode*> total;
+//	ListNode* listNd1 = new ListNode(1);
+//	listNd1->next = new ListNode(4);
+//	listNd1->next->next = new ListNode(5);
+//	total.push_back(listNd1);
+//	ListNode* listNd2 = new ListNode(1);
+//	listNd2->next = new ListNode(3);
+//	listNd2->next->next = new ListNode(4);
+//	total.push_back(listNd2);
+//	ListNode* listNd3 = new ListNode(2);
+//	listNd3->next = new ListNode(6);
+//	total.push_back(listNd3);
+//
+//	ListNode *res = mergeKLists(total);
+//	while (res != nullptr)
+//	{
+//		cout << res->val;
+//		res = res->next;
+//	}
+//	system("pause");
+//	return 0;
+//}
+
 /*28. Implement strStr() */
 
 /*56. Merge Intervals */

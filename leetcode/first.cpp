@@ -482,6 +482,49 @@
 //	return 0;
 //}
 
+/*22. Generate Parentheses */
+//void recurParenthesis(vector<string> &res, string &curStr, int &n, int length, int left, int right)
+//{
+//	if (length == 2 * n)
+//	{
+//		res.push_back(curStr);
+//		return;
+//	}
+//	if (left < n)
+//	{
+//		curStr += '(';
+//		recurParenthesis(res, curStr, n, length+1, left+1, right);
+//		curStr = curStr.substr(0, curStr.length() - 1);
+//	}
+//	if (right < left)
+//	{
+//		curStr += ')';
+//		recurParenthesis(res, curStr, n, length + 1, left, right + 1);
+//		curStr = curStr.substr(0, curStr.length() - 1);
+//	}
+//}
+//
+//vector<string> generateParenthesis(int n) 
+//{
+//	vector<string> res;
+//	string curStr;
+//	int length = 0, left = 0, right = 0;
+//	if (n > 0)
+//	{
+//		recurParenthesis(res, curStr, n, length, left, right);
+//	}
+//	return res;
+//}
+//
+//int main()
+//{
+//	vector<string> res = generateParenthesis(3);
+//	for (auto &it : res)
+//		cout << it << endl;
+//	system("pause");
+//	return 0;
+//}
+
 /*28. Implement strStr() */
 
 /*56. Merge Intervals */

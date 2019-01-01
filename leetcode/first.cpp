@@ -599,7 +599,113 @@
 //	return 0;
 //}
 
+/*24. Swap Nodes in Pairs */
+//struct ListNode {
+//	int val;
+//	ListNode *next;
+//	ListNode(int x) : val(x), next(NULL) {}
+//};
+//
+//ListNode* swapPairs(ListNode* head) 
+//{
+//	if (head == nullptr)
+//		return nullptr;
+//	ListNode *res = new ListNode(-1);
+//	ListNode *tail = res;
+//	tail->next = head;
+//	while (tail->next != nullptr && tail->next->next != nullptr)
+//	{
+//		ListNode *tmp = tail->next->next;
+//		tail->next->next = tmp->next;
+//		tmp->next = tail->next;
+//		tail->next = tmp;
+//		tail = tail->next->next;
+//	}
+//	return res->next;
+//}
+//
+//int main()
+//{
+//	ListNode *listN = new ListNode(1);
+//	listN->next = new ListNode(2);
+//	listN->next->next = new ListNode(3);
+//	listN->next->next->next = new ListNode(4);
+//	ListNode *res = swapPairs(listN);
+//	while (res)
+//	{
+//		cout << res->val << endl;
+//		res = res->next;
+//	}
+//	system("pause");
+//	return 0;
+//}
+
+/*27. Remove Element */
+//int removeElement(vector<int>& nums, int val) 
+//{
+//	int i = 0, j = nums.size();
+//	while (i < j)
+//	{
+//		if (nums[i] == val)
+//		{
+//			nums[i] = nums[--j];
+//		}
+//		else
+//		{
+//			++i;
+//		}
+//	}
+//	return j;
+//}
+//
+//int main()
+//{
+//	vector<int> vec{ 3,2,2,3 };
+//	cout << removeElement(vec, 2);
+//	system("pause");
+//	return 0;
+//}
+
 /*28. Implement strStr() */
+
+/*46. Permutations */
+//void recursion(vector<vector<int>> &res, vector<int>& nums, int cur)
+//{
+//	if (cur == nums.size() - 1)
+//	{
+//		res.push_back(nums);
+//		return;
+//	}
+//	for (int i = cur; i < nums.size(); ++i)
+//	{
+//		swap(nums[i], nums[cur]);
+//		recursion(res, nums, cur + 1);
+//		swap(nums[i], nums[cur]);
+//	}
+//}
+//
+//vector<vector<int>> permute(vector<int>& nums) 
+//{
+//	vector<vector<int>> res;
+//	recursion(res, nums, 0);
+//	return res;
+//}
+//
+//int main()
+//{
+//	vector<int> vec{ 1,2,3 };
+//	vector<vector<int>> res = permute(vec);
+//	for (auto &it : res)
+//	{
+//		for (auto &iter : it)
+//		{
+//			cout << iter << " ";
+//		}
+//		cout << endl;
+//	}
+//	system("pause");
+//	return 0;
+//}
 
 /*56. Merge Intervals */
 //struct Interval 

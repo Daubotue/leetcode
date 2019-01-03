@@ -707,6 +707,45 @@
 //	return 0;
 //}
 
+/*49. Group Anagrams */
+//vector<vector<string>> groupAnagrams(vector<string>& strs) 
+//{
+//	vector<vector<string> > res;
+//	map<string, multiset<string> > ma;
+//	for (auto &it : strs)
+//	{
+//		string sortstr = it;
+//		sort(sortstr.begin(), sortstr.end());
+//		ma[sortstr].insert(it);
+//	}
+//	for (auto &it : ma)
+//	{
+//		vector<string> tmp;
+//		for (auto &iter : it.second)
+//		{
+//			tmp.push_back(iter);
+//		}
+//		res.push_back(tmp);
+//	}
+//	return res;
+//}
+//
+//int main()
+//{
+//	vector<string> vec{ "eat", "tea", "tan", "ate", "nat", "bat" };
+//	vector<vector<string> > res = groupAnagrams(vec);
+//	for (auto &it : res)
+//	{
+//		for (auto &iter : it)
+//		{
+//			cout << iter << " ";
+//		}
+//		cout << endl;
+//	}
+//	system("pause");
+//	return 0;
+//}
+
 /*56. Merge Intervals */
 //struct Interval 
 //{
@@ -806,6 +845,69 @@
 //	return 0;
 //}
 
+/*67. Add Binary */
+//string addBinary(string a, string b) 
+//{
+//	string res;
+//	int i = a.length() - 1;
+//	int j = b.length() - 1;
+//	int flag = 0;
+//	while (i >= 0 || j >= 0 || flag > 0)
+//	{
+//		int tmp = 0;
+//		if (i >= 0)
+//			tmp += a[i--] - '0';
+//		if (j >= 0)
+//			tmp += b[j--] - '0';
+//		tmp += flag;
+//		if (tmp > 1)
+//		{
+//			flag = 1;
+//			tmp -= 2;
+//		}
+//		else
+//			flag = 0;
+//		char ch = tmp + '0';
+//		res = ch + res;
+//	}
+//	return res;
+//}
+//
+//int main()
+//{
+//	string a = "1010", b = "1011";
+//	cout << addBinary(a, b) << endl;
+//	system("pause");
+//	return 0;
+//}
+
+/*69. Sqrt(x) */
+//int mySqrt(int x) 
+//{
+//	if (x < 0)
+//		return 0;
+//	int left = 1, right = x;
+//	int mid = left + (right - left) / 2;
+//	while (left <= right)
+//	{
+//		if (mid == x / mid)
+//			return mid;
+//		if (mid > x / mid)
+//			right = mid - 1;
+//		else
+//			left = mid + 1;
+//		mid = left + (right - left) / 2;
+//	}
+//	return right;
+//}
+//
+//int main()
+//{
+//	cout << mySqrt(8) << endl;
+//	system("pause");
+//	return 0;
+//}
+
 /*70. Climbing Stairs */
 //int climbStairs(int n) 
 //{
@@ -877,6 +979,45 @@
 //		for (int j = 0; j < (int)vec[i].size(); ++j)
 //		{
 //			cout << vec[i][j] << " ";
+//		}
+//		cout << endl;
+//	}
+//	system("pause");
+//	return 0;
+//}
+
+/*77. Combinations */
+//void auxCombine(int n, int k, vector<vector<int> >& res, vector<int>& tmp, int index)
+//{
+//	if (tmp.size() == k)
+//	{
+//		res.push_back(tmp);
+//		return ;
+//	}
+//	for (int i = index + 1; i <= n; ++i)
+//	{
+//		tmp.push_back(i);
+//		auxCombine(n, k, res, tmp, i);
+//		tmp.pop_back();
+//	}
+//}
+//
+//vector<vector<int>> combine(int n, int k) 
+//{
+//	vector<vector<int> > res;
+//	vector<int> tmp;
+//	auxCombine(n, k, res, tmp, 0);
+//	return res;
+//}
+//
+//int main()
+//{
+//	vector<vector<int> > res = combine(4, 2);
+//	for (auto &it : res)
+//	{
+//		for (auto &iter : it)
+//		{
+//			cout << iter << " ";
 //		}
 //		cout << endl;
 //	}

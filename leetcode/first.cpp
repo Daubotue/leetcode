@@ -1025,6 +1025,108 @@
 //	return 0;
 //}
 
+/*78. Subsets */
+//void auxsubsets(vector<vector<int> >& res, vector<int>& tmp, vector<int>&nums, int index)
+//{
+//	if (tmp.size() <= nums.size())
+//	{
+//		res.push_back(tmp);
+//	}
+//	if (tmp.size() == nums.size())
+//	{
+//		return;
+//	}
+//	else
+//	{
+//		for (int i = index; i < nums.size(); ++i)
+//		{
+//			tmp.push_back(nums[i]);
+//			auxsubsets(res, tmp, nums, i+1);
+//			tmp.pop_back();
+//		}
+//	}
+//}
+//
+//vector<vector<int> > subsets(vector<int>& nums)
+//{
+//	vector<vector<int> > res;
+//	vector<int> tmp;
+//	auxsubsets(res, tmp, nums, 0);
+//	return res;
+//}
+//
+//int main()
+//{
+//	vector<int> vec{ 1, 2, 3 };
+//	vector<vector<int> > res = subsets(vec);
+//	for (auto &it : res)
+//	{
+//		for (auto &iter : it)
+//			cout << iter << " ";
+//		cout << endl;
+//	}
+//	system("pause");
+//	return 0;
+//}
+
+/*79. Word Search */
+//int steps[4][2] = { {1,0}, {0,1}, {-1,0}, {0,-1} };
+//int rows, cols;
+//
+//bool isValid(int x_, int y_)
+//{
+//	if (x_ >= 0 && x_ < rows && y_ >= 0 && y_ < cols)
+//		return true;
+//	return false;
+//}
+//
+//bool auxExist(vector<vector<char> >&board, string &word, vector<vector<bool> > &visited, int len, int i, int j)
+//{
+//	if (len == word.length() - 1)
+//		return board[i][j] == word[len];
+//	if (board[i][j] == word[len])
+//	{
+//		visited[i][j] = true;
+//		for (int index = 0; index < 4; ++index)
+//		{
+//			int nX = i + steps[index][0];
+//			int nY = j + steps[index][1];
+//			if (isValid(nX, nY) && !visited[nX][nY] &&auxExist(board, word, visited, len + 1, nX, nY))
+//				return true;
+//		}
+//		visited[i][j] = false;
+//	}
+//	return false;
+//}
+//
+//bool exist(vector<vector<char>>& board, string word)
+//{
+//	rows = board.size();
+//	cols = board.at(0).size();
+//	vector<vector<bool> > visited(rows, vector<bool>(cols, false));
+//	for (int i = 0; i < rows; ++i)
+//	{
+//		for (int j = 0; j < cols; ++j)
+//		{
+//			if (auxExist(board, word, visited, 0, i, j))
+//				return true;
+//		}
+//	}
+//	return false;
+//}
+//
+//int main()
+//{
+//	vector<vector<char> > board{ {'A','B','C','E'}, {'S','F','C','S'}, {'A','D','E','E'} };
+//	string word[3] = { "ABCCED", "SEE", "ABCB" };
+//	for (auto &it : word)
+//	{
+//		cout << exist(board, it) << endl;
+//	}
+//	system("pause");
+//	return 0;
+//}
+
 /*88. Merge Sorted Array */
 //void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) 
 //{
@@ -1058,6 +1160,58 @@
 //		cout << it << " ";
 //	}
 //	cout << endl;
+//	system("pause");
+//	return 0;
+//}
+
+/*91. Decode Ways */
+//bool isValid(char ch)
+//{
+//	if (ch >= '1' && ch <= '26')
+//		return true;
+//	return false;
+//}
+//
+//bool isValid(char ch1, char ch2)
+//{
+//	if (ch2 == '0')
+//		return false;
+//	string str;
+//	str += ch2;
+//	str += ch1;
+//	int integer = stoi(str);
+//	if (integer >= 1 && integer <= 26)
+//		return true;
+//	return false;
+//}
+//
+//int numDecodings(string s) 
+//{
+//	if (s.length() == 0 || s[0] == '0')
+//		return 0;
+//	if (s.length() == 1)
+//		return 1;
+//	int dp1 = 1, dp2 = 1;
+//	for (int i = 1; i < s.length(); ++i)
+//	{
+//		int cur = 0;
+//		if (isValid(s[i]))
+//			cur += dp2;
+//		if (isValid(s[i], s[i - 1]))
+//			cur += dp1;
+//		dp1 = dp2;
+//		dp2 = cur;
+//	}
+//	return dp2;
+//}
+//
+//int main()
+//{
+//	string strs[2] = { "12", "226" };
+//	for (auto &it : strs)
+//	{
+//		cout << numDecodings(it) << endl;
+//	}
 //	system("pause");
 //	return 0;
 //}
@@ -1098,6 +1252,59 @@
 //	cout << isValidBST(tree) << endl;
 //	system("pause");
 //	return 0;
+//}
+
+/*102. Binary Tree Level Order Traversal */
+//struct TreeNode {
+//	int val;
+//	TreeNode *left;
+//	TreeNode *right;
+//	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+//};
+//
+//vector<vector<int>> levelOrder(TreeNode* root) 
+//{
+//	vector<vector<int> > res;
+//	if (root == nullptr)
+//		return res;
+//	queue<TreeNode*> que;
+//	TreeNode* tmp = root;
+//	que.push(tmp);
+//	while (!que.empty())
+//	{
+//		int nSize = que.size();
+//		vector<int> vec;
+//		for (int i = 0; i < nSize; ++i)
+//		{
+//			TreeNode* val = que.front();
+//			que.pop();
+//			vec.push_back(val->val);
+//			if (val->left != nullptr)
+//				que.push(val->left);
+//			if (val->right != nullptr)
+//				que.push(val->right);
+//		}
+//		res.push_back(vec);
+//	}
+//	return res;
+//}
+//
+//int main()
+//{
+//	TreeNode *root = new TreeNode(3);
+//	root->left = new TreeNode(9);
+//	root->right = new TreeNode(20);
+//	root->right->left = new TreeNode(15);
+//	root->right->right = new TreeNode(7);
+//	vector<vector<int>> res = levelOrder(root);
+//	for (auto &it : res)
+//	{
+//		for (auto &iter : it)
+//			cout << iter << " ";
+//		cout << endl;
+//	}
+//	system("pause");
+//	return 0; 
 //}
 
 /*125. Valid Palindrome */
@@ -1191,6 +1398,110 @@
 //	string send = "cog";
 //	vector<string> wordList{ "hot","dot","dog","lot","log","cog" };
 //	cout << ladderLength(sbegin, send, wordList) << endl;
+//	system("pause");
+//	return 0;
+//}
+
+/*129. Sum Root to Leaf Numbers */
+//struct TreeNode {
+//	int val;
+//	TreeNode *left;
+//	TreeNode *right;
+//	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+//};
+//
+//void auxSumNumbers(TreeNode* root, int sum, int &res)
+//{
+//	if (root == nullptr)
+//		return;
+//	sum = sum * 10 + root->val;
+//	if (root->left == nullptr && root->right == nullptr)
+//	{
+//		res += sum;
+//		return;
+//	}
+//	else
+//	{
+//		if (root->left != nullptr)
+//		{
+//			auxSumNumbers(root->left, sum, res);
+//		}
+//		if (root->right != nullptr)
+//		{
+//			auxSumNumbers(root->right, sum, res);
+//		}
+//	}
+//}
+//
+//int sumNumbers(TreeNode* root) 
+//{
+//	if (root == nullptr)
+//		return 0;
+//	int res = 0;
+//	auxSumNumbers(root, 0, res);
+//	return res;
+//}
+//
+//int main()
+//{
+//	TreeNode *root = new TreeNode(4);
+//	root->left = new TreeNode(9);
+//	root->right = new TreeNode(0);
+//	root->left->left = new TreeNode(5);
+//	root->left->right = new TreeNode(1);
+//	cout << sumNumbers(root) << endl;
+//	system("pause");
+//	return 0;
+//}
+
+/*131. Palindrome Partitioning */
+//bool isPalindrome(string str)
+//{
+//	int nf = 0, nt=str.length()-1;
+//	while (nf < nt)
+//	{
+//		if (str[nf++] != str[nt--])
+//			return false;
+//	}
+//	return true;
+//}
+//
+//void auxpartition(vector<vector<string> > &res, vector<string> &tmp, string &s, int pos)
+//{
+//	if (pos == s.length())
+//	{
+//		res.push_back(tmp);
+//	}
+//	for (int i = pos; i < s.length(); ++i)
+//	{
+//		string substr = s.substr(pos, i - pos + 1);
+//		if (isPalindrome(substr))
+//		{
+//			tmp.push_back(substr);
+//			auxpartition(res, tmp, s, i+1);
+//			tmp.pop_back();
+//		}
+//	}
+//}
+//
+//vector<vector<string>> partition(string s) 
+//{
+//	vector<vector<string> > res;
+//	vector<string> tmp;
+//	auxpartition(res, tmp, s, 0);
+//	return res;
+//}
+//
+//int main()
+//{
+//	string str = "aab";
+//	vector<vector<string> > res = partition(str);
+//	for (auto &it : res)
+//	{
+//		for (auto &iter : it)
+//			cout << iter << " ";
+//		cout << endl;
+//	}
 //	system("pause");
 //	return 0;
 //}

@@ -152,7 +152,93 @@
 //}
 
 /* 4. Median of Two Sorted Arrays */
+//int auxFindMedian(vector<int>& nums1, int i, vector<int>& nums2, int j, int pos)
+//{
+//	if (i >= nums1.size())
+//		return nums2[j + pos - 1];
+//	if (j >= nums2.size())
+//		return nums1[i + pos - 1];
+//	if (pos == 1)
+//		return min(nums1[i], nums2[j]);
+//	int midLeft  = (i + pos / 2 - 1 < nums1.size()) ? nums1[i + pos / 2 - 1] : INT_MAX;
+//	int midRight = (j + pos / 2 - 1 < nums2.size()) ? nums2[j + pos / 2 - 1] : INT_MAX;
+//	if (midLeft > midRight)
+//	{
+//		return auxFindMedian(nums1, i, nums2, j + pos / 2, pos - pos / 2);
+//	}
+//	else
+//	{
+//		return auxFindMedian(nums1, i + pos / 2, nums2, j, pos - pos / 2);
+//	}
+//}
+//
+//double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2)
+//{
+//	int m = nums1.size();
+//	int n = nums2.size();
+//	int left = (m + n + 1) / 2;
+//	int right = (m + n + 2) / 2;
+//	return (auxFindMedian(nums1, 0, nums2, 0, left) + auxFindMedian(nums1, 0, nums2, 0, right)) / 2.0;
+//}
+//
+//int main()
+//{
+//	vector<int> nums1{ 1,2 };
+//	vector<int> nums2{ 3,4 };
+//	cout << findMedianSortedArrays(nums1, nums2) << endl;
+//	system("pause");
+//	return 0;
+//}
 
+/*5. Longest Palindromic Substring */
+//string longestPalindrome(string s) 
+//{
+//	string res;
+//	int nMax = 0;
+//	int nLen = s.length();
+//	if (nLen < 2)
+//		return s;
+//	for (int i = 0; i < nLen-1; i++)
+//	{
+//		int jl = i, jr = i;
+//		while (jl >= 0 && jr < nLen && s[jl] == s[jr])
+//		{
+//			--jl;
+//			++jr;
+//		}
+//		++jl; --jr;
+//		if (nMax < jr - jl + 1)
+//		{
+//			nMax = jr - jl + 1;
+//			res = s.substr(jl, nMax);
+//		}
+//		if (s[i] == s[i + 1])
+//		{
+//			jl = i, jr = i + 1;
+//			while (jl >= 0 && jr < nLen && s[jl] == s[jr])
+//			{
+//				--jl;
+//				++jr;
+//			}
+//			++jl; --jr;
+//			if (nMax < jr - jl + 1)
+//			{
+//				nMax = jr - jl + 1;
+//				res = s.substr(jl, nMax);
+//			}
+//		}
+//	}
+//	return res;
+//}
+//
+//int main()
+//{
+//	string strs[3] = { "s", "babad", "cbbd" };
+//	for (auto &it : strs)
+//		cout << longestPalindrome(it) << endl;
+//	system("pause");
+//	return 0;
+//}
 
 /* 7. Reverse Integer */
 //int reverse(int x)
@@ -250,6 +336,68 @@
 //	return 0;
 //}
 
+/*10. Regular Expression Matching */
+//bool isMatch(string s, string p) 
+//{
+//	if (p.empty())
+//		return s.empty();
+//	if (p.size() == 1)
+//		return (s.size() == 1 && (s == p || p[0] == '.'));
+//	if (p[1] != '*')
+//	{
+//		if (s.empty())
+//			return false;
+//		return ((s[0] == p[0] || p[0] == '.') && isMatch(s.substr(1), p.substr(1)));
+//	}
+//	while (!s.empty() && (s[0] == p[0] || p[0] == '.'))
+//	{
+//		if (isMatch(s, p.substr(2)))
+//			return true;
+//		s = s.substr(1);
+//	}
+//	return isMatch(s, p.substr(2));
+//}
+//
+//int main()
+//{
+//	string ss[5] = { "aa", "aa", "ab", "aab", "mississippi" };
+//	string ps[5] = { "a", "a*", ".*", "c*a*b", "mis*is*p*." };
+//	for (int i = 0; i < 5; i++)
+//	{
+//		cout << isMatch(ss[i], ps[i]) << endl;
+//	}
+//	system("pause");
+//	return 0;
+//}
+
+/*11. Container With Most Water */
+//int maxArea(vector<int>& vheight)
+//{
+//	int res = 0;
+//	int nl = 0;
+//	int nr = vheight.size() - 1;
+//	while (nl < nr)
+//	{
+//		int height = min(vheight.at(nl), vheight.at(nr));
+//		int contain = height * (nr - nl);
+//		if (contain > res)
+//			res = contain;
+//		if (vheight.at(nl) > vheight.at(nr))
+//			--nr;
+//		else
+//			++nl;
+//	}
+//	return res;
+//}
+//
+//int main()
+//{
+//	vector<int> vec{ 1,8,6,2,5,4,8,3,7 };
+//	cout << maxArea(vec) << endl;
+//	system("pause");
+//	return 0;
+//}
+
 /*12. Integer to Roman */
 //string intToRoman(int num)
 //{
@@ -307,6 +455,46 @@
 //	return 0;
 //}
 
+/*14. Longest Common Prefix */
+//string longestCommonPrefix(vector<string>& strs)
+//{
+//	if (0 == strs.size())
+//		return "";
+//	int nMaxLen = INT_MAX;
+//	string res;
+//	for (auto &it : strs)
+//	{
+//		if (nMaxLen > it.length())
+//			nMaxLen = it.length();
+//	}
+//	if (0 == nMaxLen)
+//		return "";
+//	bool flag = true;
+//	for (int i = 0; i < nMaxLen; i++)
+//	{
+//		for (auto &it : strs)
+//		{
+//			if (it[i] != strs[0][i])
+//			{
+//				flag = false;
+//				break;
+//			}
+//		}
+//		if (!flag)
+//			break;
+//		res += strs[0][i];
+//	}
+//	return res;
+//}
+//
+//int main()
+//{
+//	vector<string> vec/*{ "flower","flow","flight" }*/;
+//	cout << longestCommonPrefix(vec) << endl;
+//	system("pause");
+//	return 0;
+//}
+
 /*15. 3Sum */
 //vector<vector<int>> threeSum(vector<int>& nums) 
 //{
@@ -359,6 +547,89 @@
 //			cout << res[i][j] << " ";
 //		}
 //		cout << endl;
+//	}
+//	system("pause");
+//	return 0;
+//}
+
+/*17. Letter Combinations of a Phone Number */
+//void auxSearch(vector<string> &res, string &digits, int cur, string strT, int nSize, string *strs)
+//{
+//	if (cur == nSize)
+//	{
+//		res.push_back(strT);
+//		return;
+//	}
+//	for (int i = 0; i < strs[digits[cur] - '0'].size(); i++)
+//	{
+//		strT += strs[digits[cur] - '0'][i];
+//		auxSearch(res, digits, cur+1, strT, nSize, strs);
+//		strT.pop_back();
+//	}
+//}	
+//
+//vector<string> letterCombinations(string digits) 
+//{
+//	vector<string> res;
+//	string tmp;
+//	if (digits == "")
+//		return res;
+//	string strs[10] = {"","" ,"abc" ,"def",
+//						"ghi", "jkl", "mno",
+//						"pqrs", "tuv", "wxyz"};
+//	int nSize = digits.length();
+//	auxSearch(res, digits, 0, tmp, nSize, strs);
+//	return res;
+//}
+//
+//int main()
+//{
+//	string str = "23";
+//	vector<string> res = letterCombinations(str);
+//	for (auto &it : res)
+//		cout << it << endl;
+//	system("pause");
+//	return 0;
+//}
+
+/*19. Remove Nth Node From End of List */
+//struct ListNode {
+//	int val;
+//	ListNode *next;
+//	ListNode(int x) : val(x), next(NULL) {}
+//};
+//
+//ListNode* removeNthFromEnd(ListNode* head, int n)
+//{
+//	if (head == nullptr)
+//		return head;
+//	ListNode* pre = head;
+//	ListNode* cur = head;
+//	for (int i = 0; i < n; i++)
+//		cur = cur->next;
+//	if (cur == nullptr)
+//		return head->next;
+//	while (cur->next)
+//	{
+//		pre = pre->next;
+//		cur = cur->next;
+//	}
+//	pre->next = pre->next->next;
+//	return head;
+//}
+//
+//int main()
+//{
+//	ListNode *root = new ListNode(1);
+//	root->next = new ListNode(2);
+//	root->next->next = new ListNode(3);
+//	root->next->next->next = new ListNode(4);
+//	root->next->next->next->next = new ListNode(5);
+//	ListNode *after = removeNthFromEnd(root, 2);
+//	while (after)
+//	{
+//		cout << after->val << " -> ";
+//		after = after->next;
 //	}
 //	system("pause");
 //	return 0;
@@ -640,6 +911,30 @@
 //	return 0;
 //}
 
+/*26. Remove Duplicates from Sorted Array */
+//int removeDuplicates(vector<int>& nums)
+//{
+//	if (nums.empty())
+//		return 0;
+//	int i = 0, j = 0;
+//	for (;j < nums.size(); )
+//	{
+//		if (nums[i] != nums[j])
+//			nums[++i] = nums[j++];
+//		else
+//			++j;
+//	}
+//	return i + 1;
+//}
+//
+//int main()
+//{
+//	vector<int> vec{ 1,2,3 };
+//	cout << removeDuplicates(vec) << endl;
+//	system("pause");
+//	return 0;
+//}
+
 /*27. Remove Element */
 //int removeElement(vector<int>& nums, int val) 
 //{
@@ -667,6 +962,41 @@
 //}
 
 /*28. Implement strStr() */
+//int strStr(string haystack, string needle) 
+//{
+//	if (haystack == "" && needle != "")
+//		return -1;
+//	if (needle == "")
+//		return 0;
+//	int nLen = haystack.length() - needle.length();
+//	for (int i = 0; i <= nLen; ++i)
+//	{
+//		if (haystack[i] == needle[0])
+//		{
+//			int k = i + 1;
+//			bool flag = true;
+//			for (int j = 1; j < needle.length(); ++j)
+//			{
+//				if (haystack[k++] != needle[j])
+//				{
+//					flag = false;
+//					break;
+//				}
+//			}
+//			if (flag)
+//				return i;
+//		}
+//	}
+//	return -1;
+//}
+//
+//int main()
+//{
+//	string haystack = "mississippi", needle = "issip";
+//	cout << strStr(haystack, needle) << endl;
+//	system("pause");
+//	return 0;
+//}
 
 /*46. Permutations */
 //void recursion(vector<vector<int>> &res, vector<int>& nums, int cur)
@@ -1553,6 +1883,38 @@
 //	link->next->next = new ListNode(2);
 //	link->next->next->next = new ListNode(1);
 //	cout << isPalindrome(link) << endl;
+//	system("pause");
+//	return 0;
+//}
+
+/*532. K-diff Pairs in an Array */
+//int findPairs(vector<int>& nums, int k) 
+//{
+//	int res = 0;
+//	sort(nums.begin(), nums.end(), [&](const int &A, const int &B) {return A < B; });
+//	int left = 0, right = 1;
+//	while (right < nums.size())
+//	{
+//		if (nums[right] - nums[left] < k)
+//			++right;
+//		else if (nums[right] - nums[left] > k)
+//			++left;
+//		else
+//		{
+//			++res;
+//			while (++left < nums.size() && nums[left] == nums[left - 1]) {}
+//			while (++right < nums.size() && nums[right] == nums[right - 1]) {}
+//		}
+//		if (left == right)
+//			++right;
+//	}
+//	return res;
+//}
+//
+//int main()
+//{
+//	vector<int> vec{ 1,3,1,5,4 };
+//	cout << findPairs(vec, 0) << endl;
 //	system("pause");
 //	return 0;
 //}

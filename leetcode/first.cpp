@@ -998,6 +998,39 @@
 //	return 0;
 //}
 
+/*29. Divide Two Integers */
+//int divide(int dividend, int divisor)
+//{
+//	long long res = 0, m = abs((long long)dividend), n = abs((long long)divisor);
+//	int sign = (dividend < 0) ^ (divisor < 0) ? -1 : 1;
+//	while (m >= n)
+//	{
+//		long long k = n, f = 1;
+//		while ((k << 1) < m)
+//		{
+//			k = k << 1;
+//			f = f << 1;
+//		}
+//		m -= k;
+//		res += f;
+//	}
+//	if (sign == -1)
+//		res *= -1;
+//	if (res < INT_MIN)
+//		return INT_MIN;
+//	else if (res > INT_MAX)
+//		return INT_MAX;
+//	else
+//		return res;
+//}
+//
+//int main()
+//{
+//	cout << divide(-2147483647,-1) << endl;
+//	system("pause");
+//	return 0;
+//}
+
 /*46. Permutations */
 //void recursion(vector<vector<int>> &res, vector<int>& nums, int cur)
 //{

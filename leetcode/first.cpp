@@ -1030,6 +1030,7 @@
 //	system("pause");
 //	return 0;
 //}
+
 /*33. Search in Rotated Sorted Array */
 //int search(vector<int>& nums, int target) 
 //{
@@ -1105,6 +1106,36 @@
 //		cout << it << "  ";
 //	system("pause");
 //	return 0;
+//}
+
+/*36. Valid Sudoku */
+//bool isValidSudoku(vector<vector<char>>& board) 
+//{
+//	if (board.empty())
+//		return false;
+//	set<char> rows[9];
+//	set<char> cols[9];
+//	set<char> subs[9];
+//	int nrow = board.size(), ncol = board.at(0).size();
+//	for (int i = 0; i < nrow; ++i)
+//	{
+//		for (int j = 0; j < ncol; ++j)
+//		{
+//			if (board[i][j] != '.')
+//			{
+//				int nind = i / 3 * 3 + j / 3;
+//				if (rows[i].count(board[i][j]) || cols[j].count(board[i][j]) || subs[nind].count(board[i][j]))
+//					return false;
+//				else
+//				{
+//					rows[i].insert(board[i][j]);
+//					cols[j].insert(board[i][j]);
+//					subs[nind].insert(board[i][j]);
+//				}
+//			}
+//		}
+//	}
+//	return true;
 //}
 
 /*46. Permutations */

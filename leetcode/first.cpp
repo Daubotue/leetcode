@@ -1030,6 +1030,82 @@
 //	system("pause");
 //	return 0;
 //}
+/*33. Search in Rotated Sorted Array */
+//int search(vector<int>& nums, int target) 
+//{
+//	int nl = 0, nr = nums.size() - 1;
+//	while (nl <= nr)
+//	{
+//		int nm = nl + (nr - nl) / 2;
+//		if (target == nums[nm])
+//			return nm;
+//		else if (nums[nl] <= nums[nm])
+//		{
+//			if (nums[nm] >= target && nums[nl] <= target)
+//				nr = nm - 1;
+//			else
+//				nl = nm + 1;
+//		}
+//		else
+//		{
+//			if (nums[nm] <= target && nums[nr] >= target)
+//				nl = nm + 1;
+//			else
+//				nr = nm - 1;
+//		}
+//	}
+//	return -1;
+//}
+//
+//int main()
+//{
+//	vector<int> vec{ 3,1 };
+//	cout << search(vec, 1) << endl;
+//	system("pause");
+//	return 0;
+//}
+
+/*34. Find First and Last Position of Element in Sorted Array */
+//vector<int> searchRange(vector<int>& nums, int target)
+//{
+//	vector<int> res{ -1, -1 };
+//	if (nums.empty())
+//		return res;
+//	int nl = 0, nr = nums.size() - 1;
+//	while (nl <= nr)
+//	{
+//		int nmid = nl + (nr - nl) / 2;
+//		if (nums[nmid] > target)
+//			nr = nmid - 1;
+//		else if (nums[nmid] < target)
+//			nl = nmid + 1;
+//		else
+//		{
+//			nl = nr = nmid;
+//			while ((nl - 1)>=0 && nums[nl - 1] == target)
+//				--nl;
+//			while ((nr + 1) < nums.size() && nums[nr + 1] == target)
+//				++nr;
+//			break;
+//		}
+//	}
+//	if (nl < nums.size() && 0<=nr && nums[nl] == target)
+//	{
+//		res[0] = nl;
+//		res[1] = nr;
+//	}
+//	return res;
+//}
+//
+//int main()
+//{
+//	vector<int> vec{ -1};
+//	vector<int> res = searchRange(vec, 2);
+//	for (auto &it : res)
+//		cout << it << "  ";
+//	system("pause");
+//	return 0;
+//}
 
 /*46. Permutations */
 //void recursion(vector<vector<int>> &res, vector<int>& nums, int cur)

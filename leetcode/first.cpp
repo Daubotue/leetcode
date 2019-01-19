@@ -1138,6 +1138,41 @@
 //	return true;
 //}
 
+/*38. Count and Say */
+//string countAndSay(int n) 
+//{
+//	string res = "1";
+//	while (--n > 0)
+//	{
+//		int cnt = 1;
+//		string tmp = "";
+//		for (int i = 1; i < res.length(); ++i)
+//		{
+//			if (res[i] == res[i - 1])
+//			{
+//				cnt++;
+//			}
+//			else
+//			{
+//				tmp += '0' + cnt;
+//				tmp += res[i - 1];
+//				cnt = 1;
+//			}
+//		}
+//		tmp += '0' + cnt;
+//		tmp += res[res.size()-1];
+//		res = tmp;
+//	}
+//	return res;
+//}
+//
+//int main()
+//{
+//	cout << countAndSay(4) << endl;
+//	system("pause");
+//	return 0;
+//}
+
 /*46. Permutations */
 //void recursion(vector<vector<int>> &res, vector<int>& nums, int cur)
 //{

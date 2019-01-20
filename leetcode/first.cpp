@@ -1323,6 +1323,33 @@
 //	return 0;
 //}
 
+/*53. Maximum Subarray */
+//int maxSubArray(vector<int>& nums) 
+//{
+//	int res = nums[0], tmp = 0;
+//	for (int i = 0; i < nums.size(); ++i)
+//	{
+//		tmp += nums[i];
+//		if (tmp > res)
+//		{
+//			res = tmp;
+//		}
+//		if (tmp < 0)
+//		{
+//			tmp = 0;
+//		}
+//	}
+//	return res;
+//}
+//
+//int main()
+//{
+//	vector<int> vec{ -3,-2,0,-1};
+//	cout << maxSubArray(vec) << endl;
+//	system("pause");
+//	return 0;
+//}
+
 /*56. Merge Intervals */
 //struct Interval 
 //{

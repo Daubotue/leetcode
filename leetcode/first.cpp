@@ -1173,6 +1173,37 @@
 //	return 0;
 //}
 
+/*41. First Missing Positive */
+//int firstMissingPositive(vector<int>& nums)
+//{
+//	if (nums.empty())
+//		return 1;
+//	for (int i = 0; i < nums.size(); ++i)
+//	{
+//		if (nums[i] > 0)
+//		{
+//			while (nums[i] > 0 && nums[i] < i + 1 && nums[i] != nums[nums[i] - 1])
+//			{
+//				swap(nums[i], nums[nums[i] - 1]);
+//			}
+//		}
+//	}
+//	for (int i = 0; i < nums.size(); ++i)
+//	{
+//		if (nums[i] != i + 1)
+//			return i + 1;
+//	}
+//	return nums.size() + 1;
+//}
+//
+//int main()
+//{
+//	vector<int> vec{ 3,4,-1,1 };
+//	cout << firstMissingPositive(vec) << endl;
+//	system("pause");
+//	return 0;
+//}
+
 /*46. Permutations */
 //void recursion(vector<vector<int>> &res, vector<int>& nums, int cur)
 //{

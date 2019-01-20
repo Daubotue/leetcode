@@ -1204,6 +1204,47 @@
 //	return 0;
 //}
 
+/*42. Trapping Rain Water */
+//int trap(vector<int>& height) 
+//{
+//	if (height.size() < 3)
+//		return 0;
+//	int maxH = -1, index=0, area = 0;
+//	for (int i = 0; i < height.size(); ++i)
+//	{
+//		if (height[i] > maxH)
+//		{
+//			maxH = height[i];
+//			index = i;
+//		}
+//	}
+//	int nH = height[0];
+//	for (int i = 1; i < index; i++)
+//	{
+//		if (height[i] > nH)
+//			nH = height[i];
+//		else
+//			area += (nH - height[i]);
+//	}
+//	nH = height[height.size() - 1];
+//	for (int i = height.size() - 2; i > index; --i)
+//	{
+//		if (height[i] > nH)
+//			nH = height[i];
+//		else
+//			area += (nH - height[i]);
+//	}
+//	return area;
+//}
+//
+//int main()
+//{
+//	vector<int> vec{ 0,1,0,2,1,0,1,3,2,1,2,1 };
+//	cout << trap(vec) << endl;
+//	system("pause");
+//	return 0;
+//}
+
 /*46. Permutations */
 //void recursion(vector<vector<int>> &res, vector<int>& nums, int cur)
 //{

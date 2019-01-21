@@ -1284,6 +1284,40 @@
 //	return 0;
 //}
 
+/*48. Rotate Image */
+//void rotate(vector<vector<int>>& matrix) 
+//{
+//	vector<vector<int> > tmp = matrix;
+//	for (int i = 0; i < matrix.size(); ++i)
+//	{
+//		for (int j = 0; j < matrix[i].size(); ++j)
+//		{
+//			tmp[j][matrix[i].size()-i-1] = matrix[i][j];
+//		}
+//	}
+//	for (int i = 0; i < matrix.size(); ++i)
+//	{
+//		for (int j = 0; j < matrix[i].size(); ++j)
+//		{
+//			matrix[i][j] = tmp[i][j];
+//		}
+//	}
+//}
+//
+//int main()
+//{
+//	vector<vector<int> > vec{ {1,2,3}, {4,5,6}, {7,8,9} };
+//	rotate(vec);
+//	for (auto &it : vec)
+//	{
+//		for (auto &iter : it)
+//			cout << iter << " ";
+//		cout << endl;
+//	}
+//	system("pause");
+//	return 0;
+//}
+
 /*49. Group Anagrams */
 //vector<vector<string>> groupAnagrams(vector<string>& strs) 
 //{
@@ -1319,6 +1353,35 @@
 //		}
 //		cout << endl;
 //	}
+//	system("pause");
+//	return 0;
+//}
+
+/*50. Pow(x, n) */
+//double auxPower(double x, int n)
+//{
+//	if (0 == n)
+//		return 1;
+//	double ans = auxPower(x, n / 2);
+//	if (n % 2 == 1)
+//		return ans * ans * x;
+//	else
+//		return ans * ans;
+//}
+//
+//double myPow(double x, int n)
+//{
+//	if (n < 0)
+//		return 1.0 / auxPower(x, -n);
+//	else
+//		return auxPower(x, n);
+//}
+//
+//int main()
+//{
+//	vector<int> vec{ -3,-2,0,-1 };
+//	cout << maxSubArray(vec) << endl;
+//	cout << myPow(2.00000, -2147483648) << endl;
 //	system("pause");
 //	return 0;
 //}

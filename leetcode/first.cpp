@@ -1413,6 +1413,41 @@
 //	return 0;
 //}
 
+/*54. Spiral Matrix */
+//vector<int> spiralOrder(vector<vector<int>>& matrix) 
+//{
+//	vector<int> res;
+//	if (matrix.empty() || matrix[0].empty())
+//		return res;
+//	int m = matrix.size(), n = matrix[0].size();
+//	int p = m, q = n;
+//	int c = m < n ? (m + 1) / 2 : (n + 1) / 2;
+//	for (int i = 0; i < c; i++, p -= 2, q -= 2)
+//	{
+//		for (int j = i; j < i + q; j++)
+//			res.push_back(matrix[i][j]);
+//		for (int j = i + 1; j < i + p; j++)
+//			res.push_back(matrix[j][i + q - 1]);
+//		if (p == 1 || q == 1)
+//			break;
+//		for (int j = i + q - 2; j >= i; --j)
+//			res.push_back(matrix[i + p - 1][j]);
+//		for (int j = i + p - 2; j > i; --j)
+//			res.push_back(matrix[j][i]);
+//	}
+//	return res;
+//}
+//
+//int main()
+//{
+//	vector<vector<int> > vec{ {1, 2, 3, 4}, {5, 6, 7, 8}, {9,10,11,12} };
+//	vector<int> res = spiralOrder(vec);
+//	for (auto &it : res)
+//		cout << it << " ";
+//	system("pause");
+//	return 0;
+//}
+
 /*56. Merge Intervals */
 //struct Interval 
 //{

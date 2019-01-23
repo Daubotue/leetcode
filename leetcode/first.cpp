@@ -1448,6 +1448,33 @@
 //	return 0;
 //}
 
+/*55. Jump Game */
+//bool canJump(vector<int>& nums) 
+//{
+//	if (nums.size() == 0)
+//		return false;
+//	if (nums.size() == 1)
+//		return true;
+//	int nMax = 0;
+//	for (int i = 0; i < nums.size(); i++)
+//	{
+//		nMax = max(nMax, i + nums[i]);
+//		if (nMax < i + 1)
+//			return false;
+//		if (nMax >= nums.size() - 1)
+//			return true;
+//	}
+//	return false;
+//}
+//
+//int main()
+//{
+//	vector<int> vec{ 2,3,1,1,4 };
+//	cout << boolalpha << canJump(vec) << endl;
+//	system("pause");
+//	return 0;
+//}
+
 /*56. Merge Intervals */
 //struct Interval 
 //{

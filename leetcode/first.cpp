@@ -1574,6 +1574,61 @@
 //	return 0;
 //}
 
+/*62. Unique Paths */
+//int uniquePaths(int m, int n) 
+//{
+//	vector<vector<int> > vec(m, vector<int>(n, 1));
+//	for (int i = 1; i < m; i++)
+//	{
+//		for (int j = 1; j < n; j++)
+//		{
+//			vec[i][j] = vec[i - 1][j] + vec[i][j - 1];
+//		}
+//	}
+//	return vec[m - 1][n - 1];
+//}
+//
+//int main()
+//{
+//	cout << uniquePaths(3, 2) << endl;
+//	system("pause");
+//	return 0;
+//}
+
+/*66. Plus One */
+//vector<int> plusOne(vector<int>& digits) 
+//{
+//	int carry = 1;
+//	for (int i = digits.size() - 1; i >= 0; --i)
+//	{
+//		int sum = digits[i] + carry;
+//		carry = 0;
+//		if (sum > 9)
+//		{
+//			digits[i] = sum - 10;
+//			carry = 1;
+//		}
+//		else
+//		{
+//			digits[i] = sum;
+//			break;
+//		}
+//	}
+//	if (carry == 1)
+//		digits.insert(digits.begin(), 1);
+//	return digits;
+//}
+//
+//int main()
+//{
+//	vector<int> vec{ 9,9,9 };
+//	vector<int> res = plusOne(vec);
+//	for (auto &it : res)
+//		cout << it << " ";
+//	system("pause");
+//	return 0;
+//}
+
 /*67. Add Binary */
 //string addBinary(string a, string b) 
 //{
